@@ -1,0 +1,45 @@
+body {
+	background-color: bisque;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.soft-skill-container {
+	background: sandybrown;
+	width: 400px;
+	padding: 40px;
+	box-sizing: border-box;
+	margin-top: 40px;
+}
+
+
+.tech-skill-container {
+	background: tomato;
+	width: 400px;
+	box-sizing: border-box;
+	margin-top: 40px;
+}
+
+
+.contacts-container {
+	background: seagreen;
+	width: 400px;
+	box-sizing: border-box;
+}
+
+.tech-skill-title {
+	font-size: 30px;
+	font-weight: 400;
+}
+
+.tech-skill-item {
+	line-height: 60px;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 24px;
+	color: white;
+}
+
+.main-container {
+	display: flex;
+	flex-direction: column;
+}
