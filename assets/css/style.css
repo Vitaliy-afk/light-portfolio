@@ -3,6 +3,14 @@
           box-sizing: border-box;
   overflow: hidden;
   font-family: 'Montserrat';
+  background-color: #f5f7fa;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #f5f7fa;
+}
+
+body {
+  background-color: #f5f7fa;
 }
 
 * {
@@ -737,9 +745,6 @@ img {
   padding-right: 20px;
   margin: 0 auto;
   max-width: 1300px;
-  background-color: #f5f7fa;
-  padding-top: 40px;
-  padding-bottom: 40px;
 }
 
 .grid {
