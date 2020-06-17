@@ -35,9 +35,6 @@ $media-expressions: (
     background-color: #f5f7fa;
     padding-top: 40px;
     padding-bottom: 40px;
-    @include media ('<1024px'){
-       padding: 0;
-    }
 }
 
 .grid {
@@ -47,10 +44,6 @@ $media-expressions: (
 	background-color: $white;
 	max-width: 1243px;
 	box-shadow: 0 0 10px rgba(0,0,0,0.1);
-	@include media ('<480px'){
-		display: block;
-	}
-
 }
 
 //******SECTOR-LEFT************//
@@ -135,7 +128,7 @@ $media-expressions: (
 
 
 .tech-skill-container {
-	margin-bottom: 28px;
+	padding-bottom: 28px;
 	h3 {
 		font-size: 22px;
 		font-weight: 700;
@@ -181,7 +174,6 @@ $media-expressions: (
 //******************//
 
 //******SECTOR-RIGHT************//
-
 
 .sector-right {
 	width: 60%;
