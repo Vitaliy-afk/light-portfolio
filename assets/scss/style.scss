@@ -20,7 +20,6 @@ $media-expressions: (
 @import 'variables';
 @import 'include-media';
 @import 'common';
-@import 'header';
 @import 'normalize';
 @import 'reset';
 @import 'helpers';
@@ -35,40 +34,37 @@ $media-expressions: (
 }
 
 .grid {
-	display: flex;
-	flex-wrap: wrap;
-	flex: 0 1 auto;
 	background-color: $white;
 	max-width: 1243px;
+	margin: 0 -15px;
 	box-shadow: 0 0 10px rgba(0,0,0,0.1);
+	@include media ('>=860px'){
+		display: flex;
+		flex-wrap: wrap;
+	}
 }
 
 //******SECTOR-LEFT************//
 
 
 .sector-left {
-	width: 30%;
-	margin-right: 15px;
-	margin-left: 40px;
+	padding: 15px 15px;
 	background-color: #1e2939;
-	padding-top: 40px;
-	@include media ('<1024px'){
-		margin-left: 0;
+	@include media ('<1025px'){
+		max-width: 50%;
 	}
-	@include media ('<850px'){
-		width: 40%;
+	@include media ('<=860px'){
+		max-width: 100%;
 	}
-	@include media ('<480px'){
-		width: 100%;
-	}
-	a {
-		display: block;
+	@include media ('>1024px'){
+		max-width: 30%;
+		flex: 0 0 30%;
 	}
 }
 
 .sector-left a img {
-	width: 372px;
-	height: 354px;
+	width: 100%;
+    height: 100%;
 	background-size: cover;
 	@include media ('<480px'){
 		width: 100%;
@@ -107,13 +103,18 @@ $media-expressions: (
 
 .contacts-container a {
 	margin-left: 10px;
-	color: grey;
-	opacity: 0.5;
+	color: $white;
 	font-size: 14px;
 	font-weight: 400;
 	line-height: 1.7;
 	letter-spacing: 0.42px;
+	text-decoration: none;
+	transition: text-decoration 3s; 
+}
+
+.contacts-container a:hover {
 	text-decoration: underline;
+	color: #ff6b08;
 }
 
 .contacts-container h3 {
@@ -124,8 +125,11 @@ $media-expressions: (
 }
 
 
-.tech-skill-container {
-	padding-bottom: 28px;
+.tech-skill-container,
+.soft-skill-container  {
+	padding-bottom: 15px;
+    padding-top: 15px;
+    margin: 15px 0 15px;
 	h3 {
 		font-size: 22px;
 		font-weight: 700;
@@ -134,52 +138,82 @@ $media-expressions: (
 }
 
 
-.tech-skill-container ul {
-	padding: 15px;
-}
-
-.tech-skill-container ul li {
-	padding-bottom: 5px;
-	color: #ff6b08;
-}
-
-.tech-skill-container ul span {
-	color: $white;
-}
-
-
-.soft-skill-container h3 {
-	font-size: 22px;
-	font-weight: 700;
-	line-height: 1;
-
-}
-
+.tech-skill-container ul,
 .soft-skill-container ul {
 	padding: 15px;
 }
 
-.soft-skill-container ul span {
+.tech-skill-container ul li,
+.soft-skill-container ul li {
+	padding-bottom: 5px;
 	color: $white;
 }
 
 
-.soft-skill-container ul li {
-	padding-bottom: 5px;
+
+
+.soft-skill-container ul li span,
+.tech-skill-container ul li span {
+	transition: 0.3s;
+	cursor: pointer;
+	position: relative;
+	
+}
+
+.soft-skill-container ul li span:hover:after,
+.soft-skill-container ul li span:focus:after,
+.tech-skill-container ul li span:hover:after,
+.tech-skill-container ul li span:focus:after {
+	width: 100%;
+}
+
+.soft-skill-container ul li span:after,
+.tech-skill-container ul li span:after {
+	content: "";
+	position: absolute;
+	bottom: -4px;
+	left: 0;
+    width: 0;
+    height: 0.2em;
+	background-color: #ff6b08;
+	transition: width 1.4s;
+}
+
+
+.soft-skill-container ul li::marker,
+.tech-skill-container ul li::marker {
+	transition: .4s;
+}
+
+
+.soft-skill-container ul li::marker,
+.tech-skill-container ul li::marker{
+	color: $white;
+}
+
+
+.soft-skill-container ul li:hover::marker,
+.tech-skill-container ul li:hover::marker {
 	color: #ff6b08;
 }
+
+
 //******************//
 
 //******SECTOR-RIGHT************//
 
 .sector-right {
-	width: 60%;
+	padding: 0 15px;
 	padding-bottom: 70px;
-	@include media ('<850px'){
-		width: 50%;
+	@include media ('<1025px'){
+		max-width: 50%;
 	}
-	@include media ('<480px'){
-		width: 100%;
+	@include media ('>1024px'){
+		max-width: 70%;
+		flex: 0 0 70%;
+	}
+	@include media ('<860px'){
+		max-width: 100%;
 	}
 }
 
@@ -187,7 +221,7 @@ $media-expressions: (
 .sector-right-container {
 	max-width: 677px;
 	margin: 0 0 0 auto;
-	padding-top: 105px;
+	padding-top: 50px;
 	@include media ('<851px'){
 		padding: 20px;
 		font-size: 12px;
@@ -207,7 +241,7 @@ $media-expressions: (
 
 .about-me h1 {
 	color: #000000;
-	font-size: 45px;
+	font-size: 35px;
 	font-weight: 700;
 	line-height: 1.7;
 	margin: 0;
@@ -224,55 +258,22 @@ $media-expressions: (
 	padding-bottom: 50px;
 }
 
-.project-container {
-	padding-bottom: 35px;
-}
-
-.project-container h3 {
-	color: #000000;
-	font-size: 22px;
-	font-weight: 700;
-	line-height: 1.7;
-}
-
-ol {
-	padding-left: 18px;
-}
+// EDUCATION //
 
 
-ol li span {
-	padding: 2px;
-	font-weight: 300;
-}
-
-ol li {
-	font-weight: 700;
-	padding-bottom: 5px;
-}
-
-ol li a {
-	color: black;
-}
-
-.exp-container {
-	padding-bottom: 37px;
-}
-
-
-.exp-container h3 {
-	color: #000000;
-	font-size: 22px;
-	font-weight: 700;
-	line-height: 1.7;
-	padding-bottom: 4px;
-}
-
-.comp {
-	padding-bottom: 10px;
-	&.education {
-		margin-top: 17px;
+.education {
+	padding-bottom: 20px;
+	font-size: 14px;
+	.col {
+		padding-bottom: 20px;
+		
+	}
+	.period {
+		margin-bottom: 10px;
 	}
 }
+
+
 
 .education h3 {
 	color: #000000;
@@ -283,12 +284,104 @@ ol li a {
 
 
 .education h4 {
-	color: #ff6b08;
+	color: $gray;
 	font-size: 16px;
 	font-weight: 700;
 	line-height: 1.7;
 	letter-spacing: 0.48px;
 }
+
+
+.education h5 {
+	color: #000000;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 1.7;
+	letter-spacing: 0.42px;
+}
+
+
+.education h6 {
+	color: $gray;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 1.7;
+	letter-spacing: 0.48px;
+	margin-bottom: 20px;
+}
+
+//******************//
+
+// WORK EXPIRIENCE //
+
+.exp-container h3 {
+	color: #000000;
+	font-size: 22px;
+	font-weight: 700;
+	line-height: 1.7;
+	padding-bottom: 20px;	
+}
+
+.comp-info {
+	display: flex;
+}
+
+.comp h4 {
+	text-transform: capitalize;
+}
+
+
+.comp-logo {
+	align-items: center;
+	display: flex;
+	padding: 0 0px 10px 0;
+	width: 140px;
+	a {
+		display: flex;
+		transition: all 1s ease-in-out;
+	}
+	a:hover {
+		opacity: 0.3;
+		width: 100%;
+		height: 100%;
+    	background-size: 100% auto;
+		background-image: linear-gradient(to right, #a1c4fd 0%, #c2e9fb 51%, #a1c4fd 100%);
+	}
+}
+
+
+.exp-list {
+	>.comp {
+		display: flex;
+		flex-direction: column;
+		padding-bottom: 20px;
+		&:nth-child(3){
+			h4 {
+				color: blue;
+				text-transform: capitalize;
+			}
+			img {
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: contain;
+				width: 8em;
+			}
+		}
+		&:nth-child(2){
+			h4 {
+				color: red;
+				text-transform: capitalize;
+			}
+			img {
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: contain;
+				width: 10em;
+			}
+		}
+	}
+}
+
 
 .comp h4 {
 	color: #000000;
@@ -296,10 +389,6 @@ ol li a {
 	font-weight: 700;
 	line-height: 1.7;
 	letter-spacing: 0.48px;
-	mark {
-		color: #ff6b08;
-		background: $white;
-	}
 }
 
 .comp span {
@@ -309,6 +398,8 @@ ol li a {
 	line-height: 1.7;
 	letter-spacing: 0.36px;
 }
+
+
 .comp ul {
 	padding: 10px;
 }
@@ -321,7 +412,16 @@ ol li a {
 	letter-spacing: 0.42px;
 }
 
-.education h3 {
+//******************//
+
+
+// PROJECTS //
+
+.project-container {
+	padding-bottom: 35px;
+}
+
+.project-container h3 {
 	color: #000000;
 	font-size: 22px;
 	font-weight: 700;
@@ -329,20 +429,43 @@ ol li a {
 }
 
 
-.education h4 {
-	color: #ff6b08;
-	font-size: 16px;
-	font-weight: 700;
-	line-height: 1.7;
-	letter-spacing: 0.48px;
+ol li span {
+	padding: 2px;
+	font-weight: 300;
 }
 
-.education h5 {
+ol li {
+	font-weight: 400;
+	margin-bottom: 30px;
+}
+
+ol li a {
+	color: $white;
+    text-decoration: none;
+    padding: 10px 15px 10px 15px;
+    max-width: 100%;
+	text-align: center;
+	border-radius: 20px;
+	transition: 0.5s;
+    background-size: 200% auto;
+	background-image: linear-gradient(to right, #a1c4fd 0%, #c2e9fb 51%, #a1c4fd 100%);
+}
+
+
+
+ol li a:hover {
+	background-position: right center;
+}
+
+.project-container {
+	padding-bottom: 35px;
+}
+
+.project-container h3 {
 	color: #000000;
-	font-size: 14px;
+	font-size: 22px;
 	font-weight: 700;
 	line-height: 1.7;
-	letter-spacing: 0.42px
+	padding-bottom: 20px;
 }
-
 //******************//
