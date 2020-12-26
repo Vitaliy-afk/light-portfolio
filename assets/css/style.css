@@ -475,6 +475,12 @@ img {
   max-width: none;
 }
 
+.period + ul li, .project-container ul li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 .clearfix:after {
   content: '';
   display: block;
@@ -506,7 +512,7 @@ img {
 }
 
 .sector-left {
-  padding: 15px 15px;
+  padding: 0 15px;
   background-color: #1e2939;
 }
 
@@ -529,6 +535,9 @@ img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .contacts-container a {
@@ -635,7 +644,7 @@ img {
 }
 
 .sector-right-container {
-  max-width: 677px;
+  max-width: 800px;
   margin: 0 0 0 auto;
   padding-top: 50px;
 }
@@ -676,8 +685,25 @@ img {
   padding-bottom: 20px;
 }
 
-.education .period {
+.period {
   margin-bottom: 10px;
+}
+
+.period + ul li {
+  position: relative;
+  padding-left: 25px;
+}
+
+.period + ul li:after {
+  content: "\2014";
+  position: absolute;
+  width: 1em;
+  height: 1em;
+  color: #ff6b08;
+  height: 5px;
+  background-position: center;
+  background-repeat: no-repeat;
+  left: 0;
 }
 
 .education h3 {
@@ -738,7 +764,7 @@ img {
   display: -ms-flexbox;
   display: flex;
   padding: 0 0px 10px 0;
-  width: 140px;
+  width: 10em;
 }
 
 .comp-logo a {
@@ -755,9 +781,6 @@ img {
   width: 100%;
   height: 100%;
   background-size: 100% auto;
-  background-image: -webkit-gradient(linear, left top, right top, from(#a1c4fd), color-stop(51%, #c2e9fb), to(#a1c4fd));
-  background-image: -o-linear-gradient(left, #a1c4fd 0%, #c2e9fb 51%, #a1c4fd 100%);
-  background-image: linear-gradient(to right, #a1c4fd 0%, #c2e9fb 51%, #a1c4fd 100%);
 }
 
 .exp-list > .comp {
@@ -811,10 +834,6 @@ img {
   letter-spacing: 0.36px;
 }
 
-.comp ul {
-  padding: 10px;
-}
-
 .comp {
   color: #595959;
   font-size: 14px;
@@ -827,6 +846,11 @@ img {
   padding-bottom: 35px;
 }
 
+.project-container ul li {
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+
 .project-container h3 {
   color: #000000;
   font-size: 22px;
@@ -834,17 +858,12 @@ img {
   line-height: 1.7;
 }
 
-ol li span {
+ul li span {
   padding: 2px;
   font-weight: 300;
 }
 
-ol li {
-  font-weight: 400;
-  margin-bottom: 30px;
-}
-
-ol li a {
+ul li a {
   color: #fff;
   text-decoration: none;
   padding: 10px 15px 10px 15px;
@@ -860,7 +879,7 @@ ol li a {
   background-image: linear-gradient(to right, #a1c4fd 0%, #c2e9fb 51%, #a1c4fd 100%);
 }
 
-ol li a:hover {
+ul li a:hover {
   background-position: right center;
 }
 
