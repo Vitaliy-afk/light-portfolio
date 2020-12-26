@@ -66,6 +66,7 @@ $media-expressions: (
 	width: 100%;
     height: 100%;
 	background-size: cover;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
 	@include media ('<480px'){
 		width: 100%;
 	}
